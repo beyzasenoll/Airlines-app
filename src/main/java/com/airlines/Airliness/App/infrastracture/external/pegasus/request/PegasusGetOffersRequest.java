@@ -14,13 +14,4 @@ public class PegasusGetOffersRequest {
     public Date departureDate;
     public Date returnDate;
 
-    public static PegasusGetOffersRequest fromOfferFilter(OfferFilter offerFilter) {
-        PegasusGetOffersRequest request = PegasusGetOffersRequest.builder().build();
-        request.destination = PegasusGetOffersDestinationDto.builder().build();
-        request.destination.departureAirport = offerFilter.departureAirport;
-        request.destination.arrivalAirport = offerFilter.arrivalAirport;
-        request.departureDate = offerFilter.departureDate;
-        request.returnDate = offerFilter.returnDate;
-        return request;
-    }
 }

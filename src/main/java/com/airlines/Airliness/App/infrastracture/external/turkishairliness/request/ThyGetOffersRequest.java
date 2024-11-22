@@ -14,15 +14,4 @@ public class ThyGetOffersRequest {
     public ThyGetOffersDestinationDto destination;
     public Date returnDate;
     public Date departureDate;
-
-    public static ThyGetOffersRequest fromOfferFilter(OfferFilter offerFilter) {
-        ThyGetOffersRequest request = ThyGetOffersRequest.builder().build();
-        request.destination = ThyGetOffersDestinationDto.builder().build();
-        request.destination.departureAirport = offerFilter.departureAirport;
-        request.destination.arrivalAirport = offerFilter.arrivalAirport;
-        request.departureDate = offerFilter.departureDate;
-        request.returnDate = offerFilter.returnDate;
-        return request;
-    }
-    // statik yazmadan nasıl yazılır
 }
