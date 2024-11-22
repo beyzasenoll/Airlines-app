@@ -4,10 +4,12 @@ import com.airlines.Airliness.App.infrastracture.external.turkishairliness.reque
 import com.airlines.Airliness.App.infrastracture.external.turkishairliness.response.ThyGetFlightInformation;
 import com.airlines.Airliness.App.infrastracture.external.turkishairliness.response.ThyGetOffersPrice;
 import com.airlines.Airliness.App.infrastracture.external.turkishairliness.response.ThyGetOffersResponse;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Component
 public class ThyServiceClient {
     public ThyGetOffersResponse getOffers(ThyGetOffersRequest thyGetOffersRequest) {
 

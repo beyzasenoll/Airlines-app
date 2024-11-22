@@ -8,6 +8,7 @@ import com.airlines.Airliness.App.infrastracture.external.pegasus.request.Pegasu
 import com.airlines.Airliness.App.infrastracture.external.pegasus.response.PegasusGetOffersFlightInformation;
 import com.airlines.Airliness.App.infrastracture.external.pegasus.response.PegasusGetOffersPrice;
 import com.airlines.Airliness.App.infrastracture.external.pegasus.response.PegasusGetOffersResponse;
+import com.airlines.Airliness.App.infrastracture.external.turkishairliness.request.ThyGetOffersRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -83,5 +84,24 @@ class PegasusAdapterTest {
         assertEquals(pegasusGetOffersResponse.price.total, response.totalPrice);
         assertEquals(pegasusGetOffersResponse.price.currency, response.currency);
         assertEquals(pegasusGetOffersResponse.flightInformation.departureAirport, response.departureAirport);
+    }
+
+    @Test
+    void when_offer_is_empty_should_return_null() {
+        // Given
+        OfferFilter offerFilter = OfferFilter.builder()
+                .departureAirport("IST")
+                .arrivalAirport("SAM")
+                .departureDate(new Date())
+                .returnDate(new Date())
+                .build();
+
+        when(pegasusServiceClient.getOffers(any(PegasusGetOffersRequest.class))).thenReturn(null);
+
+        // When
+        Offer offer = pegasusAdapter.getOffer(offerFilter);
+
+        // Then
+        assertNull(offer);
     }
 }

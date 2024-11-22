@@ -24,4 +24,5 @@ public class ThyGetOffersRequest {
         request.returnDate = offerFilter.returnDate;
         return request;
     }
+    // statik yazmadan nasıl yazılır
 }

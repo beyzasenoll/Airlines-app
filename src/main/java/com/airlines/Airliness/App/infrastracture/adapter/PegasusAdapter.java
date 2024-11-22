@@ -21,6 +21,9 @@ public class PegasusAdapter implements OfferPort {
         PegasusGetOffersRequest pegasusGetOffersRequest = PegasusGetOffersRequest.fromOfferFilter(offerFilter);
 
         PegasusGetOffersResponse pegasusGetOffersResponse = pegasusServiceClient.getOffers(pegasusGetOffersRequest);
+        if (pegasusGetOffersResponse == null || pegasusGetOffersResponse.flightInformation == null || pegasusGetOffersResponse.price == null){
+            return null;
+        }
 
         return Offer.builder()
                 .totalPrice(pegasusGetOffersResponse.price.total)
