@@ -6,12 +6,16 @@ import com.airlines.Airliness.App.infrastracture.external.pegasus.request.Pegasu
 
 public class PegasusRequestFactory {
     public static PegasusGetOffersRequest fromOfferFilter(OfferFilter offerFilter) {
-        PegasusGetOffersRequest request = PegasusGetOffersRequest.builder().build();
-        request.destination = PegasusGetOffersDestinationDto.builder().build();
-        request.destination.departureAirport = offerFilter.departureAirport;
-        request.destination.arrivalAirport = offerFilter.arrivalAirport;
-        request.departureDate = offerFilter.departureDate;
-        request.returnDate = offerFilter.returnDate;
-        return request;
+        return PegasusGetOffersRequest.builder()
+                .destination(
+                        PegasusGetOffersDestinationDto.builder()
+                                .departureAirport(offerFilter.departureAirport)
+                                .arrivalAirport(offerFilter.arrivalAirport)
+                                .build()
+                )
+                .departureDate(offerFilter.departureDate)
+                .returnDate(offerFilter.returnDate)
+                .build();
     }
+
 }
