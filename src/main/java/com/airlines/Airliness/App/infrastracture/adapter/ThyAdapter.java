@@ -3,8 +3,7 @@ package com.airlines.Airliness.App.infrastracture.adapter;
 import com.airlines.Airliness.App.domain.model.Offer;
 import com.airlines.Airliness.App.domain.model.OfferFilter;
 import com.airlines.Airliness.App.domain.port.OfferPort;
-import com.airlines.Airliness.App.domain.factory.thy.ThyRequestFactory;
-import com.airlines.Airliness.App.domain.factory.thy.ThyResponseFactory;
+
 import com.airlines.Airliness.App.infrastracture.external.turkishairliness.ThyServiceClient;
 import com.airlines.Airliness.App.infrastracture.external.turkishairliness.request.ThyGetOffersRequest;
 import com.airlines.Airliness.App.infrastracture.external.turkishairliness.response.ThyGetOffersResponse;
@@ -21,10 +20,10 @@ public class ThyAdapter implements OfferPort {
     @Override
     public Offer getOffer(OfferFilter offerFilter) {
 
-        ThyGetOffersRequest request = ThyRequestFactory.fromOfferFilter(offerFilter);
+        ThyGetOffersRequest request = ThyGetOffersRequest.fromOfferFilter(offerFilter);
 
         ThyGetOffersResponse thyGetOffersResponse = thyServiceClient.getOffers(request);
-        Offer offer = ThyResponseFactory.fromOfferResponse(thyGetOffersResponse);
+        Offer offer = ThyGetOffersResponse.fromOfferResponse(thyGetOffersResponse);
         return offer;
 
         // offer.from()

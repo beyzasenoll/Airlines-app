@@ -1,7 +1,5 @@
 package com.airlines.Airliness.App.infrastracture.adapter;
 
-import com.airlines.Airliness.App.domain.factory.pegasus.PegasusRequestFactory;
-import com.airlines.Airliness.App.domain.factory.pegasus.PegasusResponseFactory;
 import com.airlines.Airliness.App.domain.model.Offer;
 import com.airlines.Airliness.App.domain.model.OfferFilter;
 import com.airlines.Airliness.App.domain.port.OfferPort;
@@ -22,13 +20,13 @@ public class PegasusAdapter implements OfferPort {
     @Override
     public Offer getOffer(OfferFilter offerFilter) {
 
-        PegasusGetOffersRequest pegasusGetOffersRequest = PegasusRequestFactory.fromOfferFilter(offerFilter);
+        PegasusGetOffersRequest pegasusGetOffersRequest = PegasusGetOffersRequest.fromOfferFilter(offerFilter);
 
         PegasusGetOffersResponse pegasusGetOffersResponse = pegasusServiceClient.getOffers(pegasusGetOffersRequest);
         if (pegasusGetOffersResponse == null || pegasusGetOffersResponse.flightInformation == null || pegasusGetOffersResponse.price == null){
             return null;
         }
 
-        return PegasusResponseFactory.fromPegasusGetOffersResponse(pegasusGetOffersResponse);
+        return PegasusGetOffersResponse.fromPegasusGetOffersResponse(pegasusGetOffersResponse);
     }
 }

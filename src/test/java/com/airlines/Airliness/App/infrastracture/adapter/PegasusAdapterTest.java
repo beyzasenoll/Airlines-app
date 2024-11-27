@@ -45,17 +45,6 @@ class PegasusAdapterTest {
                 .returnDate(new Date())
                 .build();
 
-        PegasusGetOffersDestinationDto pegasusGetOffersDestinationDto = PegasusGetOffersDestinationDto.builder()
-                .departureAirport(offerFilter.departureAirport)
-                .arrivalAirport(offerFilter.arrivalAirport)
-                .build();
-
-        PegasusGetOffersRequest pegasusGetOffersRequest = PegasusGetOffersRequest.builder()
-                .destination(pegasusGetOffersDestinationDto)
-                .departureDate(offerFilter.departureDate)
-                .returnDate(offerFilter.returnDate)
-                .build();
-
         PegasusGetOffersFlightInformation pegasusGetOffersFlightInformation = PegasusGetOffersFlightInformation.builder()
                 .departureAirport("IST")
                 .arrivalAirport("AYT")
