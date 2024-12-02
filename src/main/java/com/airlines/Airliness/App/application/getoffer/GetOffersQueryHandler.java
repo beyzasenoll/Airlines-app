@@ -3,10 +3,12 @@ package com.airlines.Airliness.App.application.getoffer;
 import com.airlines.Airliness.App.domain.model.Offer;
 import com.airlines.Airliness.App.domain.model.OfferFilter;
 import com.airlines.Airliness.App.domain.port.OfferPort;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class GetOffersQueryHandler {
     private List<OfferPort> offerPortList;
 
