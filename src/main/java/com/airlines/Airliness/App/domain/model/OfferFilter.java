@@ -2,7 +2,6 @@ package com.airlines.Airliness.App.domain.model;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 

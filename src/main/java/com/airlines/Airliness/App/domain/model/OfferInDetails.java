@@ -1,5 +1,6 @@
 package com.airlines.Airliness.App.domain.model;
 
+import com.airlines.Airliness.App.domain.model.fragment.Flight;
 import com.airlines.Airliness.App.domain.model.fragment.Passenger;
 import lombok.Data;
 
@@ -9,21 +10,11 @@ import java.util.List;
 
 @Data
 public class OfferInDetails {
-    public BigDecimal totalPrice;
-    public String currency;
-    public String departureAirport;
-    public String arrivalAirport;
-    public Date departureDate;
-    public Date arrivalDate;
-    public Long flightNumber;
-    public Integer seatNumber;
-
-    private String seatClass;
+    private Flight flight;
+    Passenger passenger;
     private Boolean isRefundable;
     private Boolean hasMealIncluded;
 
-    // Passenger details
-    Passenger passenger;
 
     // Flight provider details
     private String airlineName;

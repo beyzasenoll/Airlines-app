@@ -29,13 +29,12 @@ public class BuyTicketCommandHandler {
             throw new IllegalStateException("Selected offer is not valid or no longer available.");
         }
 
-        // Rezervasyon Oluşturma
         seatReservationService.reserveSeat(
-                selectedOffer.getFlightNumber(),
+                selectedOffer.getFlight().getFlightNumber(),
                 selectedOffer.getAirlineName(),
-                selectedOffer.getDepartureDate(),
-                selectedOffer.getSeatClass(),
-                selectedOffer.getSeatNumber(),
+                selectedOffer.getFlight().getDepartureDate(),
+                selectedOffer.getFlight().getSeatClass(),
+                selectedOffer.getFlight().getSeatNumber(),
                 selectedOffer.getPassenger()
         );
     }

@@ -7,6 +7,5 @@ public class Passenger {
     private String Name;
     private String Surname;
     private String Email;
-    private String PhoneNumber;
     private String passportNumber;
 }

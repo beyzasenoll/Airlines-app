@@ -19,7 +19,6 @@ public class PegasusServiceClient {
                 new PegasusGetOffersPrice("USD", BigDecimal.TEN),
                 new PegasusGetOffersFlightInformation("IST", "ESB", new Date(), new Date(), 123L, 1)
         );
-        //TODO implement MocKoon
     }
 
     public PegasusGetOffersResponse getOfferDetail(PegasusGetOffersRequest pegasusGetOffersRequest) {

@@ -22,7 +22,7 @@ public class GetOffersService {
         }
 
         OfferInDetails offerInDetails = new OfferInDetails();
-        if(command.user.getPassportNumber() == offerInDetails.getPassportNumber() && command.getSelectedFlightNumber().equals(offerInDetails.getFlightNumber())){
+        if(command.user.getPassportNumber() == offerInDetails.getPassenger().getPassportNumber() && command.getSelectedFlightNumber().equals(offerInDetails.getFlight().getFlightNumber())){
             return offerInDetails;
         }
 
