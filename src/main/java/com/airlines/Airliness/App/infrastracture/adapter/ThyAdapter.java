@@ -25,8 +25,5 @@ public class ThyAdapter implements OfferPort {
         ThyGetOffersResponse thyGetOffersResponse = thyServiceClient.getOffers(request);
         Offer offer = ThyGetOffersResponse.fromOfferResponse(thyGetOffersResponse);
         return offer;
-
-        // offer.from()
-     // TODO: not implemented yet
     }
 }

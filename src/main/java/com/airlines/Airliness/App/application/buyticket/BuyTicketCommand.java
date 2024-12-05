@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 public class BuyTicketCommand {
     public User user;
+    public String selectedFlightNumber;
     public String selectedAirline;
     public String selectedDate;
     public String selectedTime;
